@@ -13,12 +13,12 @@ body {
 }
 
 h1 {
-    font: 48px "Palatino Linotype", serif;
+    font: 44px "Palatino Linotype", serif;
+    color: #aaa;
     margin-top: 0;
 }
-
 h1 span {
-    color: #aaa;
+    color: black;
 }
 
 p, ul {
