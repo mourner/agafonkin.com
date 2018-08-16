@@ -1,0 +1,44 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font: 18px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    font: 48px "Palatino Linotype", serif;
+    margin-top: 0;
+}
+
+h1 span {
+    color: #aaa;
+}
+
+p, ul {
+    color: #444;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+li {
+}
+
+a {
+    color: #0083CB;
+}
+
+.container {
+    min-height: 0;
+    max-width: 780px;
+    padding: 20px;
+    overflow: auto;
+}
