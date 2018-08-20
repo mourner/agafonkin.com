@@ -5,7 +5,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font: 18px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 18px/1.4 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -moz-font-feature-settings: 'kern';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 h1 {
     font: 44px/1.1 "Palatino Linotype", serif;
@@ -19,6 +22,7 @@ h1 span {
 p, ul {
     color: #444;
     margin: 26px 0 26px;
+    letter-spacing: -0.005em;
 }
 a {
     color: #0083CB;
