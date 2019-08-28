@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapbox GL JS perf metrics</title>
+    <script src="https://unpkg.com/apexcharts@3.8.5/dist/apexcharts.min.js"></script>
+</head>
+<body>
+<script>
+
+(async () => {
+    const rawData = (await (await fetch('data.json')).text()).trim().split('\n').map(str => JSON.parse(str))
+
+    const stats = ['bundle_size_gz', 'tile_bufferData_index_bytes', 'tile_bufferData_vertex_bytes', 'tile_texImage2D_bytes', 'frame_draw', 'frame_useProgram', 'frame_bindVAO'];
+
+    for (const id of stats) {
+        const data = rawData.map(p => [new Date(p.dt).valueOf(), p[id], p.commit + ': ' + p.message]);
+        data.sort((a, b) => a[0] - b[0]);
+
+        const div = document.createElement('div');
+        document.body.appendChild(div);
+
+        new ApexCharts(div, {
+            chart: {
+                height: 300,
+                type: 'line'
+            },
+            title: {
+                text: id
+            },
+            series: [{
+                name: id,
+                data: data
+            }],
+            xaxis: {
+                type: 'datetime'
+            },
+            tooltip: {
+                x: {
+                    format: 'dd MMM yy, hh:mm'
+                },
+                z: {
+                    title: 'Commit:'
+                }
+            }
+        }).render();
+    }
+})();
+
+</script>
+</body>
+</html>
